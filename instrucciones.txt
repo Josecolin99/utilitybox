@@ -1,0 +1,13 @@
+1.Crear un entorno virtual: python -m venv venv
+2. cambiar el nombre de la carpeta y archivo app por el de su proyecto
+3. Actualizar pip: pip install pip --upgrade
+4. Instalar twine:  pip install twine
+
+Recuerda realizar pip freeze > requirements.txt al final para tener las extenciones
+
+5. Rellenar el setup.py
+6. Ejecutar: python .\setup.py sdist
+7. Subir con: twine upload dist/*
+
+COMANDOS
+python -m app -> Para ejecutar pruebas 
