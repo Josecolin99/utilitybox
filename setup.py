@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 this_directory = Path(__file__).parent
 long_description = (this_directory / "README.md").read_text()
 
-VERSION = '0.0.0.1'
+VERSION = '0.0.0.2-alpha'
 DESCRIPTION = 'Utility Box - A collection of useful Python utilities.'
 PACKAGE_NAME = 'utilitybox'
 AUTHOR = 'Jose Angel Colin Najera'
