@@ -1,6 +1,6 @@
 import random
 
-def random_number_list(number_elements:int, min=0, max=100):
+def random_number_list(number_elements: int, min=0, max=100):
     """
     The function `random_number_list` generates a list of random numbers within a specified range.
     
@@ -18,7 +18,7 @@ def random_number_list(number_elements:int, min=0, max=100):
     """
     return [random.randint(min, max) for _ in range(number_elements)]
 
-def bubble_sort(data:list):
+def bubble_sort(data: list):
     """
     The bubble_sort function takes a list of numbers and sorts them in ascending order using the bubble
     sort algorithm.
@@ -43,7 +43,14 @@ def bubble_sort(data:list):
             start, end = start + 1, end + 1
     return data
      
+def selection_sort(data: list):
+  ...
+
+
 if __name__ == '__main__':
     data = random_number_list(20000)
     bubble = bubble_sort(data)
     print(bubble)
+    selection = selection_sort(data)
+    print(selection)
+    
