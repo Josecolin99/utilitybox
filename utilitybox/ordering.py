@@ -1,4 +1,5 @@
 import random
+import operator
 
 def random_number_list(number_elements: int, min=0, max=100):
     """
@@ -18,18 +19,22 @@ def random_number_list(number_elements: int, min=0, max=100):
     """
     return [random.randint(min, max) for _ in range(number_elements)]
 
-def bubble_sort(data: list):
+def bubble_sort(data: list, reverse=False):
     """
-    The bubble_sort function takes a list of numbers and sorts them in ascending order using the bubble
-    sort algorithm.
+    The `bubble_sort` function sorts a given list of data in ascending order using the bubble sort
+    algorithm, and can also sort in descending order if the `reverse` parameter is set to `True`.
     
     Args:
-      data (list): The parameter `data` is a list of numbers that you want to sort using the bubble sort
-    algorithm.
+      data (list): The `data` parameter is a list of elements that you want to sort using the bubble
+    sort algorithm.
+      reverse: The "reverse" parameter is a boolean value that determines whether the sorting should be
+    done in ascending order (default) or descending order. If "reverse" is set to True, the sorting will
+    be done in descending order. Defaults to False
     
     Returns:
-      the sorted list in ascending order.
+      The function `bubble_sort` returns the sorted list `data`.
     """
+    comparison = operator.lt if reverse else operator.gt
     all_cleanded = True
     range_valid = len(data) - 1
     while all_cleanded:
@@ -37,7 +42,7 @@ def bubble_sort(data: list):
         all_cleanded = False
         for _ in range(range_valid):
             first_number, last_number  = data[start], data[end]
-            if first_number > last_number:
+            if comparison(first_number, last_number):
                 data[start], data[end] = last_number, first_number
                 all_cleanded = True
             start, end = start + 1, end + 1
