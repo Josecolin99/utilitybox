@@ -49,32 +49,24 @@ def bubble_sort(data: list, reverse=False):
             start, end = start + 1, end + 1
     return data
      
-def selection_sort(data: list):
-    """
-    The selection_sort function implements the selection sort algorithm to sort a given list of numbers
-    in ascending order.
-    
-    Args:
-      data (list): The parameter `data` is a list of numbers that needs to be sorted in ascending order
-    using the selection sort algorithm.
-    
-    Returns:
-      the sorted list.
-    """
+def selection_sort(data: list, reverse=False):
+
+    comparison = operator.gt if reverse else operator.lt
     data_split = 0
     global_index = 0
     while True:
         data_current = data[data_split:]
-        min_number = data_current[0]
-        min_index = data_split
+        focus_number = data_current[0]
+        focus_index = data_split
         for index in range(len(data_current)):
             current_number = data_current[index]
-            if current_number < min_number:
-                min_number = current_number
-                min_index = data_split + index
+            
+            if comparison(current_number, focus_number):
+                focus_number = current_number
+                focus_index = data_split + index
         data_split += 1
         if data_split > len(data)-1: break
-        data[global_index], data[min_index] = data[min_index], data[global_index]
+        data[global_index], data[focus_index] = data[focus_index], data[global_index]
         global_index += 1
     
     return data
@@ -82,9 +74,9 @@ def selection_sort(data: list):
 
 
 if __name__ == '__main__':
-    data = random_number_list(number_elements=20_000, min=0, max=20_000)
+    data = random_number_list(number_elements=5, min=0, max=5)
     # bubble = bubble_sort(data)
     # print(bubble)
-    selection = selection_sort(data)
+    selection = selection_sort(data, reverse=False)
     print(selection)
     
