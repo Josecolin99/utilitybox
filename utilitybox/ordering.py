@@ -35,7 +35,7 @@ def bubble_sort(data: list, reverse=False):
     Returns:
       The function `bubble_sort` returns the sorted list `data`.
     """
-    comparison = operator.lt if reverse else operator.gt
+    comparison = operator.gt if reverse else operator.lt
     all_cleanded = True
     range_valid = len(data) - 1
     while all_cleanded:
@@ -43,13 +43,26 @@ def bubble_sort(data: list, reverse=False):
         all_cleanded = False
         for _ in range(range_valid):
             first_number, last_number  = data[start], data[end]
-            if comparison(first_number, last_number):
+            if comparison(last_number, first_number):
                 data[start], data[end] = last_number, first_number
                 all_cleanded = True
             start, end = start + 1, end + 1
     return data
      
 def selection_sort(data: list, reverse=False):
+    """
+    The `selection_sort` function sorts a given list of numbers in ascending order using the selection
+    sort algorithm.
+    
+    Args:
+      data (list): The `data` parameter is a list of elements that you want to sort.
+      reverse: The `reverse` parameter is a boolean value that determines whether the sorting should be
+    in ascending order (default) or descending order. If `reverse` is set to `True`, the sorting will be
+    done in descending order. Defaults to False
+    
+    Returns:
+      the sorted list.
+    """
 
     comparison = operator.gt if reverse else operator.lt
     data_split = 0
@@ -74,9 +87,11 @@ def selection_sort(data: list, reverse=False):
 
 
 if __name__ == '__main__':
-    data = random_number_list(number_elements=5, min=0, max=5)
-    # bubble = bubble_sort(data)
-    # print(bubble)
-    selection = selection_sort(data, reverse=False)
+    reverse = True
+    data = random_number_list(number_elements=20, min=0, max=50)
+    bubble = bubble_sort(data, reverse=reverse)
+    print(bubble)
+    print()
+    selection = selection_sort(data, reverse=reverse)
     print(selection)
     
