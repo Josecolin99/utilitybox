@@ -83,15 +83,29 @@ def selection_sort(data: list, reverse=False):
         global_index += 1
     
     return data
-            
+  
+def inserion_sort(data:list, reverse=False):
+    comparison = operator.gt if reverse else operator.lt
+    for index, dato in enumerate(data):
+        reverse_index = index
+        while reverse_index > 0 and comparison(dato, data[reverse_index - 1]):
+            data[reverse_index] = data[reverse_index - 1]
+            reverse_index -= 1
+        data[reverse_index] = dato
+    return data
 
 
 if __name__ == '__main__':
-    reverse = True
-    data = random_number_list(number_elements=20, min=0, max=50)
-    bubble = bubble_sort(data, reverse=reverse)
-    print(bubble)
-    print()
-    selection = selection_sort(data, reverse=reverse)
-    print(selection)
+    reverse = False
+    data = random_number_list(number_elements=20_000, min=0, max=20_00)
+    print(data)
+    # bubble = bubble_sort(data, reverse=reverse)
+    # print(bubble)
+    # print()
+    # selection = selection_sort(data, reverse=reverse)
+    # print(selection)
+    insertion = inserion_sort(data, reverse)
+    print(insertion)
+  
+
     
