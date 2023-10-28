@@ -55,20 +55,19 @@ def rule_of_three(a: float, b: float, c: float, reverse=False) -> bool:
     Args:
       a (float): The parameter "a" represents the first value in the rule of three
     equation.
-      b (float): The parameter "b" represents the second value in the rule of three
-    equation.
-      c (float): The parameter "c" represents the third value in the rule of three
-    equation. It is the value that is proportional to the product of "a" and "b".
+      b (float): The parameter "b" represents the middle value in a set of three
+    numbers.
+      c (float): The parameter "c" represents the third value in a set of three
+    values.
       reverse: A boolean parameter that determines whether to calculate the rule of
     three normally or in reverse. If reverse is set to True, the function will
-    calculate (b * c) / a. If reverse is set to False or not provided, the function
-    will calculate (a * b) / c. Defaults to False
+    calculate (a * b) / c. If reverse is set to False or not provided, the function
+    will calculate (b * c) / a. Defaults to False
     
     Returns:
-      The function `rule_of_three` returns the result of the rule of three
-    calculation. If the `reverse` parameter is `False`, it calculates `(a * b) /
-    c`. If `reverse` is `True`, it calculates `(b * c) / a`.
+      The function `rule_of_three` returns either the result of `(a * b) / c` or
+    `(b * c) / a` depending on the value of the `reverse` parameter.
     """
     if reverse:
-        return (b * c) / a
-    return (a * b) / c
+        return (a * b) / c
+    return (b * c) / a
