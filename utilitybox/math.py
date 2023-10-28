@@ -46,3 +46,29 @@ def even_number(number: int, reverse=False) -> bool:
     if comparison(number % 2, 0):
         return True
     return False
+
+def rule_of_three(a: float, b: float, c: float, reverse=False) -> bool:
+    """
+    The function calculates the missing value in a proportion using the rule of
+    three.
+    
+    Args:
+      a (float): The parameter "a" represents the first value in the rule of three
+    equation.
+      b (float): The parameter "b" represents the second value in the rule of three
+    equation.
+      c (float): The parameter "c" represents the third value in the rule of three
+    equation. It is the value that is proportional to the product of "a" and "b".
+      reverse: A boolean parameter that determines whether to calculate the rule of
+    three normally or in reverse. If reverse is set to True, the function will
+    calculate (b * c) / a. If reverse is set to False or not provided, the function
+    will calculate (a * b) / c. Defaults to False
+    
+    Returns:
+      The function `rule_of_three` returns the result of the rule of three
+    calculation. If the `reverse` parameter is `False`, it calculates `(a * b) /
+    c`. If `reverse` is `True`, it calculates `(b * c) / a`.
+    """
+    if reverse:
+        return (b * c) / a
+    return (a * b) / c
