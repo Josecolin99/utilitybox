@@ -87,3 +87,10 @@ def average(data: List[float]) -> Optional[float]:
     if not data:
         return None
     return sum(data) / len(data)
+
+
+if __name__ == '__main__':
+    from generals import random_number_list
+    data = random_number_list(5, 0, 5)
+    print(data)
+    print(average(data))
