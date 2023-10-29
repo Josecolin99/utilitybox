@@ -2,6 +2,7 @@
 
 import math
 import operator as op
+from typing import List, Optional
 
 def prime_number(number: int) -> bool:
     """
@@ -71,3 +72,18 @@ def rule_of_three(a: float, b: float, c: float, reverse=False) -> bool:
     if reverse:
         return (a * b) / c
     return (b * c) / a
+  
+def average(data: List[float]) -> Optional[float]:
+    """
+    The function calculates the average of a list of numbers and returns it, or
+    returns None if the list is empty.
+    
+    Args:
+      data (List[float]): A list of floating-point numbers.
+    
+    Returns:
+      the average of the given data as a float value.
+    """
+    if not data:
+        return None
+    return sum(data) / len(data)
