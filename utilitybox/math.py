@@ -2,6 +2,7 @@
 
 import math
 import operator as op
+from typing import List, Optional
 
 def prime_number(number: int) -> bool:
     """
@@ -55,20 +56,69 @@ def rule_of_three(a: float, b: float, c: float, reverse=False) -> bool:
     Args:
       a (float): The parameter "a" represents the first value in the rule of three
     equation.
-      b (float): The parameter "b" represents the second value in the rule of three
-    equation.
-      c (float): The parameter "c" represents the third value in the rule of three
-    equation. It is the value that is proportional to the product of "a" and "b".
+      b (float): The parameter "b" represents the middle value in a set of three
+    numbers.
+      c (float): The parameter "c" represents the third value in a set of three
+    values.
       reverse: A boolean parameter that determines whether to calculate the rule of
     three normally or in reverse. If reverse is set to True, the function will
-    calculate (b * c) / a. If reverse is set to False or not provided, the function
-    will calculate (a * b) / c. Defaults to False
+    calculate (a * b) / c. If reverse is set to False or not provided, the function
+    will calculate (b * c) / a. Defaults to False
     
     Returns:
-      The function `rule_of_three` returns the result of the rule of three
-    calculation. If the `reverse` parameter is `False`, it calculates `(a * b) /
-    c`. If `reverse` is `True`, it calculates `(b * c) / a`.
+      The function `rule_of_three` returns either the result of `(a * b) / c` or
+    `(b * c) / a` depending on the value of the `reverse` parameter.
     """
     if reverse:
-        return (b * c) / a
-    return (a * b) / c
+        return (a * b) / c
+    return (b * c) / a
+  
+def average(data: List[float]) -> Optional[float]:
+    """
+    The function calculates the average of a list of numbers and returns it, or
+    returns None if the list is empty.
+    
+    Args:
+      data (List[float]): A list of floating-point numbers.
+    
+    Returns:
+      the average of the given data as a float value.
+    """
+    if not data:
+        return None
+    return sum(data) / len(data)
+
+def greatest_common_divisor(a: int, b: int):
+    """
+    The function `greatest_common_divisor` returns the greatest common divisor of
+    two integers `a` and `b`.
+    
+    Args:
+      a (int): an integer representing the first number
+      b (int): The parameter "b" represents the second integer for which we want to
+    find the greatest common divisor.
+    
+    Returns:
+      The greatest common divisor of the two input integers, `a` and `b`.
+    """
+    return math.gcd(a, b)
+
+def minimum_common_multiple(a: int, b: int):
+    """
+    The function calculates the minimum common multiple of two given integers.
+    
+    Args:
+      a (int): an integer representing the first number
+      b (int): The parameter "b" represents the second number for which we want to
+    find the minimum common multiple.
+    
+    Returns:
+      the minimum common multiple of the two input integers, `a` and `b`.
+    """
+    return abs(a*b) // greatest_common_divisor(a, b)
+    
+if __name__ == '__main__':
+    from generals import random_number_list
+    data = random_number_list(5, 0, 5)
+    print(data)
+    print(average(data))
