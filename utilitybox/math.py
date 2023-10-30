@@ -89,9 +89,32 @@ def average(data: List[float]) -> Optional[float]:
     return sum(data) / len(data)
 
 def greatest_common_divisor(a: int, b: int):
+    """
+    The function `greatest_common_divisor` returns the greatest common divisor of
+    two integers `a` and `b`.
+    
+    Args:
+      a (int): an integer representing the first number
+      b (int): The parameter "b" represents the second integer for which we want to
+    find the greatest common divisor.
+    
+    Returns:
+      The greatest common divisor of the two input integers, `a` and `b`.
+    """
     return math.gcd(a, b)
 
 def minimum_common_multiple(a: int, b: int):
+    """
+    The function calculates the minimum common multiple of two given integers.
+    
+    Args:
+      a (int): an integer representing the first number
+      b (int): The parameter "b" represents the second number for which we want to
+    find the minimum common multiple.
+    
+    Returns:
+      the minimum common multiple of the two input integers, `a` and `b`.
+    """
     return abs(a*b) // greatest_common_divisor(a, b)
     
 if __name__ == '__main__':
