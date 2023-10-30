@@ -88,7 +88,12 @@ def average(data: List[float]) -> Optional[float]:
         return None
     return sum(data) / len(data)
 
+def greatest_common_divisor(a: int, b: int):
+    return math.gcd(a, b)
 
+def minimum_common_multiple(a: int, b: int):
+    return abs(a*b) // greatest_common_divisor(a, b)
+    
 if __name__ == '__main__':
     from generals import random_number_list
     data = random_number_list(5, 0, 5)
