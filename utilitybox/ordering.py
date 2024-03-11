@@ -18,16 +18,16 @@ def bubble_sort(data: list, reverse=False):
       The function `bubble_sort` returns the sorted list `data`.
     """
     comparison = operator.gt if reverse else operator.lt
-    all_cleanded = True
+    all_cleanded = False
     range_valid = len(data) - 1
-    while all_cleanded:
+    while not all_cleanded:
         start, end = 0, 1
-        all_cleanded = False
+        all_cleanded = True
         for _ in range(range_valid):
             first_number, last_number  = data[start], data[end]
             if comparison(last_number, first_number):
                 data[start], data[end] = last_number, first_number
-                all_cleanded = True
+                all_cleanded = False
             start, end = start + 1, end + 1
     return data
      
